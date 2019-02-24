@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <title>智能语音实验室</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="智能语音实验室,声音数据,数据采集,数据标注,数据定制,数据脱敏,数据训练,数据应用" />
+    <meta name="description" content="智能语音实验室（soundlab.ai），是一家专注于数据采集，数据加工、数据应用整体解决方案的人工智能数据服务公司" />
+    <script>
+       var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile");
+       var browser = navigator.userAgent.toLowerCase();
+       var isMobile = false;
+       for (var i = 0; i < mobileAgent.length; i++) {
+           if (browser.indexOf(mobileAgent[i]) != -1) {
+               isMobile = true;
+               let url = window.location.href.split('/tts.html')[0];
+               window.location=url+'/mobile/index.html';
+               break;
+           }
+       }
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/layer.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link  rel="stylesheet" type="text/css" href="./css/aliicon.css">
+    <link rel="stylesheet" type="text/css" href="./css/media.css">
+    <link rel="stylesheet" type="text/css" href="./css/tts.css">
+</head>
+<style type="text/css">
+#canvasContainer{
+    overflow: hidden;
+}
+.banner-wrap{
+    height: auto;
+}
+</style>
+<body style="">
+<header class="navbar nav-wrap nav-ph">
+    <div class="container">
+        <!--logo开始-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button">
+                <span class="sr-only">深度数据</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <div class="navbar-brand">
+                <a href="#"><div class="img-bg"></div></a>
+           </div>
+        </div>
+        <!--logo结束-->
+        <!--导航开始-->
+        <nav class="collapse navbar-collapse" style="display: none;">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li class=""><a href="index.html#banner-wrap">首页</a></li>
+                <li class=""><a href="index.html#excuse-wrap">关于我们</a></li>
+                <li class=""><a href="index.html#serve-wrap">产品服务</a></li> -->
+                <!-- <li class="current"><a href="javascript:;">应用场景</a></li> -->
+                <li class=""><a href="https://collect.soundlab.ai/index.html" target="_blank">声音克隆</a></li>
+                <li class=""><a href="#SpeechSynthesis">语音合成</a></li>
+                <li class=""><a href="#apply-wrap">联系我们</a></li>
+            </ul>
+        </nav>
+        <!--导航结束-->
+    </div>
+</header>
+<!--首页部分-->
+<div class="banner-wrap" id="banner-wrap">
+   <!--粒子效果-->
+    <div id="canvasContainer"></div>
+    <div class="banner-text animated" style="display: block;">
+        <h1 class=" animated fadeInDown">驱动人工智能时代</h1>
+        <p class="banner-title animated fadeInDown">万物赋声，用心构建“声临其境”的世界</p>
+        <a href="#apply-wrap" class="btn-up animated fadeInDown">
+            开始驱动
+            <span class="line line-top"></span>
+            <span class="line line-right"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+        </a>
+    </div>
+</div>
+<!--首页部分结束-->
+
+<div class="SpeechSynthesis" id="SpeechSynthesis">
+    <div class="content">
+        <div class="title">
+            <img src="img/speech.png" alt="">
+            <div class="title_zh">
+                <h4>
+                    <span></span>
+                    产品体验
+                    <span></span>
+                </h4>
+            </div>
+        </div>
+        <br><br><br>
+    <div class="tts_experience">
+    	<!-- <div class="line_bo_tts"><img src="img/line_bo_tts.png"></div>  -->
+        <div class="tts_experience_up">
+            <div class="tts_exp_up">
+                <div class="tts_exp_step">1、请选择发音人</div>
+                <div id="tts_category_data">
+                    <div class="tts_exp_title title1">标准合成</div>
+                    <ul class="">                       
+                        <li class="tts_left">
+                            <div title="8027" data_language="zh" class="click">邻家女声（娇）</div>                           
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- <div class="tts_exp_up">
+                <span class="tts_exp_step">2、请选择音速</span>
+                <div id="tts_rate_data">
+                    <ul class="">                       
+                        <li class="tts_left" data-id="0.2"><div class="item">0.2</div></li>
+                        <li class="tts_left" data-id="0.5"><div class="item">0.5</div></li>
+                        <li class="tts_left click" data-id="1"><div class="item">1</div></li>
+                        <li class="tts_left" data-id="1.5"><div class="item">1.5</div></li>
+                        <li class="tts_left" data-id="2"><div class="item">2</div></li>
+                    </ul>
+                </div>
+            </div> -->
+
+            <div class="tts_exp_down">
+                <div class="tts_exp_step">2、请输入您想体验的文本</div>
+                <div class="tts_exp_text">
+                    <textarea id="tts_exp_text" placeholder="语音合成技术能将用户输入的文字，转换成流畅自然的语音输出，并且可以支持语速、音量设置，打破传统文字式人机交互方式，让人机沟通更自然"></textarea>
+                    <p><span id="word">0</span>/200<br></p>
+                    <div class="tip">输入文字后，点击合成</div>
+                </div>
+            </div>
+            
+            <div class="tts_exp_down-op">
+                <div class="rate-cont">
+                    <div class="pro">
+                        <span class="txt">音速</span>
+                        <span class="line"></span>
+                    </div>
+                    <ul id="tts_rate_data">
+                        <li class="li1" data-id="0.2">
+                            <div class="dot"></div>
+                            <div class="txt">0.2</div>
+                        </li>
+                        <li class="li2" data-id="0.5">
+                            <div class="dot"></div>
+                            <div class="txt">0.5</div>
+                        </li>
+                        <li class="li3 active" data-id="1">
+                            <div class="dot"></div>
+                            <div class="txt">1.0</div>
+                        </li>
+                        <li class="li4" data-id="1.5">
+                            <div class="dot"></div>
+                            <div class="txt">1.5</div>
+                        </li>
+                        <li class="li5" data-id="2">
+                            <div class="dot"></div>
+                            <div class="txt">2.0</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rate-cont">
+                    <div class="pro">
+                        <span class="txt">音量</span>
+                        <span class="line"></span>
+                    </div>
+                    <ul id="tts_volume_data" class="ul2">
+                        <li class="li1" data-id="0.2">
+                            <div class="dot"></div>
+                            <div class="txt">20%</div>
+                        </li>
+                        <li class="li2" data-id="0.5">
+                            <div class="dot"></div>
+                            <div class="txt">50%</div>
+                        </li>
+                        <li class="li3 active" data-id="1">
+                            <div class="dot"></div>
+                            <div class="txt">100%</div>
+                        </li>
+                        <li class="li4" data-id="1.5">
+                            <div class="dot"></div>
+                            <div class="txt">150%</div>
+                        </li>
+                        <li class="li5" data-id="2">
+                            <div class="dot"></div>
+                            <div class="txt">200%</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-cont">
+                    <button class="tts_exp_button btn1" id="contral_star""></button>
+                    <button class="tts_exp_button btn2" id="contral_star_toggle"></button>
+                    <audio src="" id="player" style="display: none;"></audio>
+                </div>
+            </div>
+        </div>
+		</div>
+    </div>
+
+</div>
+
+
+<!--填写信息开始-->
+<div class="apply-wrap" id="apply-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-xs-12">
+                <form id="form">
+                    <div class="input-box">
+                        <input type="text" name="name" placeholder="请填写您的姓名" id="username">
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="email" placeholder="请填写您的邮箱" id="email">
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="phone" placeholder="请填写您的手机号" id="tel">
+                    </div>
+                    <div class="input-box">
+                        <textarea rows="2" placeholder="请填写您的需求与建议" name="demand" id="demand"></textarea>
+                    </div>
+                    <span class="sub-btn" id="confirm_btn">提交</span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--填写信息结束-->
+
+<footer class="footer">
+    <div class="container">
+        <!-- <div class="img-box"><img src="./Stardust_files/logo_b.png"></div> -->
+        <p >智能语音实验室</p>
+        <div class="row" style="margin-top:30px;color:#8f8f8f;">
+            <div class="col-md-3">公司电话：400-1155-285</div>
+            <div class="col-md-6">公司地址：北京市海淀区永澄北路2号院1号楼A座四层405-419号</div>
+        </div>
+        <p class="copy">Copyright© 2019 北京微量分贝科技有限公司 ALL RIGHTS RESERVED</p>
+    </div>
+</footer>
+<div class="loading-page" id="loading_page">
+    <div class="layer"></div>
+    <div class="loading">
+        <div class="loader-inner line-scale-pulse-out">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p class="mt10">预计等待&nbsp;<span id="counting">0</span>秒</p>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/layer.js"></script>
+<script type="text/javascript" src="./js/three.min.js"></script>
+<script type="text/javascript" src="./js/canvas.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/tts.js"></script>
+</body></html>
